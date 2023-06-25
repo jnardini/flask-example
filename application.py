@@ -1,4 +1,5 @@
 from flask import Flask, request
+import json
 
 application = Flask(__name__)
 
@@ -18,6 +19,5 @@ def handle_post():
     datetime = data['datetime']
     questionnaire = data['questionnaire']
     context = data['context']
-    # Pass data to your function(s) here
-
-    return f'Hello {email}, {datetime}, {questionnaire}, {context}!', 200
+    
+    return json.dumps(f'Hello {email}, {datetime}, {questionnaire}, {context}!'), 200
